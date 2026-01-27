@@ -3,13 +3,13 @@ import { Container, Stack } from "@mui/material";
 import { green } from "@mui/material/colors";
 import { NextPage } from "next";
 
-const PropertyList: NextPage = () => {
+const PropertyDetail: NextPage = () => {
   console.log("Property Component Pages router");
   return (
     <>
-      <Container>Property List</Container>
+      <Container>Property Detail</Container>
     </>
   );
 };
 
-export default withLayoutBasic(PropertyList);
+export default withLayoutBasic(PropertyDetail);
