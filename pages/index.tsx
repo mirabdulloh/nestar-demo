@@ -1,15 +1,15 @@
 import Head from "next/head";
 import Image from "next/image";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter, Roboto_Mono } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const mono = Roboto_Mono({
+  variable: "--font-mono",
   subsets: ["latin"],
 });
 
@@ -22,18 +22,13 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div
-        className={`${styles.page} ${geistSans.variable} ${geistMono.variable}`}
-      >
+
+      <div className={`${styles.page} ${inter.variable} ${mono.variable}`}>
         <main className={styles.main}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js logo"
-            width={100}
-            height={20}
-            priority
-          />
+         <div>
+          <h1>Pages Router</h1>
+        </div>
+
           <div className={styles.intro}>
             <h1>To get started, edit the index.tsx file.</h1>
             <p>
@@ -56,6 +51,7 @@ export default function Home() {
               center.
             </p>
           </div>
+
           <div className={styles.ctas}>
             <a
               className={styles.primary}
@@ -72,6 +68,7 @@ export default function Home() {
               />
               Deploy Now
             </a>
+
             <a
               className={styles.secondary}
               href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
