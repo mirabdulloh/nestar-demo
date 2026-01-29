@@ -3,12 +3,27 @@ import Link from "next/link";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import { Logout } from "@mui/icons-material";
+import { useEffect, useState } from "react";
 
 const Top = () => {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 50;
+      if (isScrolled !== scrolled) {
+        setScrolled(isScrolled);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [scrolled]);
+
   return (
     <Stack className="navbar">
       {/* navbar-main */}
-      <Stack className="navbar-main">
+      <Stack className={`navbar-main ${scrolled ? "transparent" : ""}`}>
         {/* container */}
         <Stack className="container">
           {/* LOGO */}
