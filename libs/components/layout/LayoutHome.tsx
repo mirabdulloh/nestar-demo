@@ -3,6 +3,10 @@ import brown from "@mui/material/colors/brown";
 import green from "@mui/material/colors/green";
 import Head from "next/head";
 import { Component } from "react";
+import Top from "../Top";
+import Footer from "../Footer";
+import HeaderFilter from "../HomePage/HeaderFilter";
+
 
 const withLayoutMain = (Component: any) => {
   return (props: any) => {
@@ -12,11 +16,21 @@ const withLayoutMain = (Component: any) => {
           <title>Nestar</title>
         </Head>
         <Stack id="pc-wrap">
-          <Stack sx={{ background: green[300] }}>Header Home</Stack>
+          <Stack id="top">
+            <Top/>
+          </Stack>
+          <Stack id="header-main">
+            <Stack className="container">
+              <HeaderFilter />
+            </Stack>
+          </Stack>
+
           <Stack id="main">
             <Component {...props} />
           </Stack>
-          <Stack sx={{ background: brown[300] }}>Footer</Stack>
+          <Stack id="footer">
+              <Footer/>
+          </Stack>
         </Stack>
       </>
     );
