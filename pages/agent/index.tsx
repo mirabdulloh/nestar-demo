@@ -3,13 +3,13 @@ import { Stack } from "@mui/material";
 import { NextPage } from "next";
 import { useState } from "react";
 
-const Community: NextPage = () => {
-  console.log("Community Component Pages router");
+const AGENT: NextPage = () => {
+  console.log("AGENT Component Pages router");
   return (
     <div style={{ margin: "20px 0" }}>
-      <Stack className="container">Community</Stack>
+      <Stack className="container">AGENT LIST</Stack>
     </div>
   );
 };
 
-export default withLayoutBasic(Community);
+export default withLayoutBasic(AGENT);
