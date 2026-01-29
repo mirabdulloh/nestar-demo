@@ -1,0 +1,19 @@
+//! IMPORTS 
+
+@import 'variables.scss';
+@import 'reset.scss';
+
+// ! VERSIONS: PC
+
+#pc-wrap{
+    width: 100%;
+    height: 100%;
+    .container{
+        position: relative;
+        width: 1300px;
+        margin: 0 auto;
+        display: flex;
+        background-color: yellow;
+    }
+}
+
