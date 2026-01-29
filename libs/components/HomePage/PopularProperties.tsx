@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import { Stack, Box } from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper/modules";
 import PopularPropertyCard from "./PopularPropertyCard";
 import Link from "next/link";
+import WestIcon from "@mui/icons-material/West";
+import EastIcon from "@mui/icons-material/East";
 
 const PopularProperties = ({ initialInput, ...props }: any) => {
   const [popularProperties, setPopularProperties] =
@@ -30,6 +33,7 @@ const PopularProperties = ({ initialInput, ...props }: any) => {
             className={"popular-property-swiper"}
             spaceBetween={25}
             slidesPerView={"auto"}
+            modules={[Navigation, Pagination]}
             navigation={{
               nextEl: ".swiper-popular-next",
               prevEl: ".swiper-popular-prev",
@@ -47,6 +51,11 @@ const PopularProperties = ({ initialInput, ...props }: any) => {
             })}
           </Swiper>
         </Stack>
+        <Box className={"pagination-box"}>
+          <WestIcon className={"swiper-popular-prev"} />
+          <div className={"swiper-popular-pagination"}></div>
+          <EastIcon className={"swiper-popular-next"} />
+        </Box>
       </Stack>
     </Stack>
   );

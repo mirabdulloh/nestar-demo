@@ -399,8 +399,10 @@
           width: 100%;
           height: auto;
           display: flex;
-          flex-direction: row;
+          flex-direction: column;
+          align-items: center;
           justify-content: space-between;
+
           .popular-property-swiper {
             width: 100%;
             height: 425px;
@@ -412,6 +414,30 @@
               height: auto;
               display: flex;
               margin: 10px 0 10px 10px;
+            }
+          }
+
+          .swiper-popular-pagination {
+            margin-top: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+
+            .swiper-pagination-bullet {
+              width: 8px;
+              height: 8px;
+              background: #cfd3da;
+              opacity: 1;
+              border-radius: 999px;
+              transition: 0.2s ease;
+              cursor: pointer;
+            }
+
+            .swiper-pagination-bullet-active {
+              width: 10px;
+              height: 10px;
+              background: #111;
             }
           }
           .popular-card-box {
@@ -568,6 +594,47 @@
                 }
               }
             }
+          }
+        }
+
+        .pagination-box {
+          margin-top: 34px;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+
+          .swiper-popular-pagination {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            .swiper-pagination-bullet {
+              width: 8px;
+              height: 8px;
+              background: #cfd3da;
+              opacity: 1;
+              border-radius: 999px;
+              transition: 0.2s ease;
+              cursor: pointer;
+              margin: 0 !important;
+            }
+
+            .swiper-pagination-bullet-active {
+              width: 10px;
+              height: 10px;
+              background: #111;
+            }
+          }
+
+          .swiper-popular-next {
+            margin-left: 20px;
+            cursor: pointer;
+          }
+
+          .swiper-popular-prev {
+            margin-right: 20px;
+            cursor: pointer;
           }
         }
       }
@@ -729,6 +796,46 @@
               background-size: cover;
               border-radius: 12px 12px 0px 0px;
               cursor: pointer;
+
+              div.status {
+                position: absolute;
+                padding: 6px 34px;
+                left: 20px;
+                top: 20px;
+                display: flex;
+                align-items: center;
+                border-radius: 6px;
+                background: #eb6753;
+                img {
+                  width: 14px;
+                  height: 14px;
+                }
+                span {
+                  margin-left: 5px;
+                  color: #fff;
+                  font-family: $font;
+                  font-size: 12px;
+                  font-style: normal;
+                  font-weight: 600;
+                  line-height: normal;
+                  text-transform: uppercase;
+                }
+              }
+
+              div.price {
+                position: absolute;
+                padding: 8px 12px;
+                left: 20px;
+                bottom: 20px;
+                border-radius: 6px;
+                background: #fff;
+                color: #181a20;
+                font-family: $font;
+                font-size: 15px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+              }
 
               .divcard {
                 position: absolute;
@@ -909,9 +1016,10 @@
           height: auto;
           display: flex;
           flex-direction: row;
-          align-items: center;
+          align-items: flex-start;
           justify-content: space-between;
           .switch-btn {
+            margin-top: 80px;
             width: 50px;
             height: 50px;
             display: flex;

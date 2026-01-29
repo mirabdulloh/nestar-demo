@@ -13,7 +13,7 @@ const TopPropertyCard = () => {
           backgroundImage: `url("/img/banner/types/apartment.webp")`,
         }}
       >
-        <div>$420000</div>
+        <div className={'price'}>$420000</div>
       </Box>
       <Box className={'info'}>
         <strong className={'title'}>Run Will Buildings</strong>
@@ -41,7 +41,7 @@ const TopPropertyCard = () => {
             </IconButton>
             <Typography className="view-cnt">120</Typography>
             <IconButton color={'default'}>
-              <FavoriteIcon />
+              <FavoriteIcon style={{ color: 'red' }} />
             </IconButton>
             <Typography className="view-cnt">200</Typography>
           </div>
