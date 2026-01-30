@@ -4,6 +4,8 @@ import { green } from "@mui/material/colors";
 import { NextPage } from "next";
 import { useState } from "react";
 import KeyboardArrowDownRoundedIcon from "@mui/icons-material/KeyboardArrowDownRounded";
+import KeyboardArrowLeftRoundedIcon from "@mui/icons-material/KeyboardArrowLeftRounded";
+import KeyboardArrowRightRoundedIcon from "@mui/icons-material/KeyboardArrowRightRounded";
 import Filter from "@/libs/components/Property/Filtes";
 import PropertyCard from "@/libs/components/Property/PropertyCard";
 
@@ -38,7 +40,7 @@ const PropertyList: NextPage = () => {
                   onClick={() => currentPage > 1 && setCurrentPage(currentPage - 1)}
                   disabled={currentPage === 1}
                 >
-                  &#8249;
+                  <KeyboardArrowLeftRoundedIcon />
                 </button>
                 <div className="pagination-numbers">
                   {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
@@ -58,7 +60,7 @@ const PropertyList: NextPage = () => {
                   }
                   disabled={currentPage === totalPages}
                 >
-                  &#8250;
+                  <KeyboardArrowRightRoundedIcon />
                 </button>
               </Stack>
               <span className="pagination-info">
