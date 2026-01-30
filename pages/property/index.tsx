@@ -9,6 +9,10 @@ import PropertyCard from "@/libs/components/Property/PropertyCard";
 
 const PropertyList: NextPage = () => {
   const [properties, setProperties] = useState<number[]>([1, 2, 3, 4, 5, 6]);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const itemsPerPage = 6;
+  const totalItems = 13;
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
 
   return (
     <div id={"property-list-page"} style={{ position: "relative" }}>
@@ -27,9 +31,40 @@ const PropertyList: NextPage = () => {
             {properties.map((property, index) => (
               <PropertyCard key={index} />
             ))}
-          </Stack>
-          <Stack className="pagination">
-            
+            <Stack className="pagination">
+              <Stack sx={{ display: "flex", flexDirection: "row", alignItems: "center", gap: "16px", justifyContent: "center" }}>
+                <button
+                  className="pagination-arrow"
+                  onClick={() => currentPage > 1 && setCurrentPage(currentPage - 1)}
+                  disabled={currentPage === 1}
+                >
+                  &#8249;
+                </button>
+                <div className="pagination-numbers">
+                  {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+                    <button
+                      key={page}
+                      className={`page-number ${currentPage === page ? "active" : ""}`}
+                      onClick={() => setCurrentPage(page)}
+                    >
+                      {page}
+                    </button>
+                  ))}
+                </div>
+                <button
+                  className="pagination-arrow"
+                  onClick={() =>
+                    currentPage < totalPages && setCurrentPage(currentPage + 1)
+                  }
+                  disabled={currentPage === totalPages}
+                >
+                  &#8250;
+                </button>
+              </Stack>
+              <span className="pagination-info">
+                Total {totalItems} properties available
+              </span>
+            </Stack>
           </Stack>
         </Stack>
       </Stack>
