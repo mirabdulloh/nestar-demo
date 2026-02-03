@@ -1,0 +1,19 @@
+#mobile-wrap {
+  #top {
+    .navbar {
+      height: 100%;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+  #footer {
+    .footer-container {
+      height: 150px;
+      background-color: #181a20;
+      color: white;
+      text-align: center;
+      justify-content: center;
+    }
+  }
+}

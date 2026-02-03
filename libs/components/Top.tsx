@@ -4,8 +4,10 @@ import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import { Logout } from "@mui/icons-material";
 import { useEffect, useState } from "react";
+import useDeviceDetect from "../hooks/useDeviceDetect";
 
 const Top = () => {
+  const device = useDeviceDetect();
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -19,65 +21,90 @@ const Top = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [scrolled]);
+  if (device == "mobile") {
+    return (
+      <Stack className="navbar">
+        <Link href="/">
+          <div>Home</div>
+        </Link>
 
-  return (
-    <Stack className="navbar">
-      {/* navbar-main */}
-      <Stack className={`navbar-main ${scrolled ? "transparent" : ""}`}>
-        {/* container */}
-        <Stack className="container">
-          {/* LOGO */}
-          <Box component="div" className="logo-box">
-            <Link href="/">
-              <img src="/img/logo/logoWhite.svg" alt="logo" />
-            </Link>
-          </Box>
+        <Link href="/property">
+          <div>Properties</div>
+        </Link>
 
-          {/* ROUTER LINKS */}
-          <Box component="div" className="router-box">
-            <Link href="/">
-              <div>Home</div>
-            </Link>
+        <Link href="/agent">
+          <div>Agents</div>
+        </Link>
 
-            <Link href="/property">
-              <div>Properties</div>
-            </Link>
+        <Link href="/community">
+          <div>Community</div>
+        </Link>
 
-            <Link href="/agent">
-              <div>Agents</div>
-            </Link>
+        <Link href="/cs">
+          <div>CS</div>
+        </Link>
+      </Stack>
+    );
+  } else {
+    return (
+      <Stack className="navbar">
+        {/* navbar-main */}
+        <Stack className={`navbar-main ${scrolled ? "transparent" : ""}`}>
+          {/* container */}
+          <Stack className="container">
+            {/* LOGO */}
+            <Box component="div" className="logo-box">
+              <Link href="/">
+                <img src="/img/logo/logoWhite.svg" alt="logo" />
+              </Link>
+            </Box>
 
-            <Link href="/community?articleCategory=FREE">
-              <div>Community</div>
-            </Link>
+            {/* ROUTER LINKS */}
+            <Box component="div" className="router-box">
+              <Link href="/">
+                <div>Home</div>
+              </Link>
 
-            <Link href="/cs">
-              <div>CS</div>
-            </Link>
-          </Box>
+              <Link href="/property">
+                <div>Properties</div>
+              </Link>
 
-          {/* USER */}
-          <Box component={"div"} className={"user-box"}>
-            <>
-              <div className={"login-user"}>
-                <img src={"/img/profile/defaultUser.svg"} alt="" />
-              </div>
+              <Link href="/agent">
+                <div>Agents</div>
+              </Link>
 
-              <Menu id="basic-menu" sx={{ mt: "5px" }} open={false}>
-                <MenuItem>
-                  <Logout
-                    fontSize="small"
-                    style={{ color: "blue", marginRight: "10px" }}
-                  />
-                  Logout
-                </MenuItem>
-              </Menu>
-            </>
-          </Box>
+              <Link href="/community">
+                <div>Community</div>
+              </Link>
+
+              <Link href="/cs">
+                <div>CS</div>
+              </Link>
+            </Box>
+
+            {/* USER */}
+            <Box component={"div"} className={"user-box"}>
+              <>
+                <div className={"login-user"}>
+                  <img src={"/img/profile/defaultUser.svg"} alt="" />
+                </div>
+
+                <Menu id="basic-menu" sx={{ mt: "5px" }} open={false}>
+                  <MenuItem>
+                    <Logout
+                      fontSize="small"
+                      style={{ color: "blue", marginRight: "10px" }}
+                    />
+                    Logout
+                  </MenuItem>
+                </Menu>
+              </>
+            </Box>
+          </Stack>
         </Stack>
       </Stack>
-    </Stack>
-  );
+    );
+  }
 };
 
 export default Top;
