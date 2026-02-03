@@ -8,6 +8,8 @@ import "../scss/pc/main.scss";
 import "../scss/mobile/main.scss";
 import SwiperCore from "swiper";
 import { Navigation, Pagination } from "swiper/modules";
+import { ApolloProvider } from "@apollo/client";
+import client from "@/apollo/client";
 
 SwiperCore.use([Navigation, Pagination]);
 
@@ -15,11 +17,13 @@ export default function App({ Component, pageProps }: AppProps) {
   //@ts-ignore
 
   const [theme, setTheme] = useState(createTheme(light));
-  //! Socket.IO Client Init
+  //! Socket.IO Client Init, Apollo Client Init
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Component {...pageProps} />
-    </ThemeProvider>
+    <ApolloProvider client={client}>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </ApolloProvider>
   );
 }
